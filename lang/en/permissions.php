@@ -1,0 +1,33 @@
+<?php
+return [
+    'groups' => [
+        'Dashboard' => 'Dashboard',
+        'Drivers' => 'Drivers',
+        'Partners' => 'Partners',
+        'Collections' => 'Collections',
+        'Transactions' => 'Transactions',
+        'Settlements' => 'Settlements',
+        'Reports' => 'Reports',
+        'Company_Info' => 'Company Info',
+        'Currencies' => 'Currencies',
+        'Payment_methods' => 'Payment Methods',
+        'Activity_logs' => 'Activity Logs',
+        'Roles' => 'Roles',
+        'Users' => 'Users',
+    ],
+    'actions' => [
+        'index' => 'Index',
+        'view' => 'View',
+        'create' => 'Create',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'pay' => 'Pay',
+        'cancel' => 'Cancel',
+        'activity_logs' => 'Activity Logs',
+        'drivers' => 'Drivers',
+        'partners' => 'Partners',
+        'company' => 'Company',
+        'transaction' => 'Transactions',
+        'settlement' => 'Settlements',
+    ],
+];
