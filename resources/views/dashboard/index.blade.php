@@ -28,7 +28,7 @@
                     <div>
                         <div class="stat-value">
                             {{ number_format($financialToday->revenue ?? 0, 2) }}
-                            {{ $defaultCurrecy->symbol }}
+                            {{ $defaultCurrecy?->symbol ?? '' }}
                         </div>
                         <div class="text-muted">{{ __('dashboard.revenue') }} <br> ({{ __('dashboard.today') }})</div>
                     </div>
@@ -44,7 +44,7 @@
                     <div>
                         <div class="stat-value">
                             {{ number_format(($financialToday->company_earnings ?? 0) + ($collectionToday->company_collections ?? 0), 2) }}
-                            {{ $defaultCurrecy->symbol }}
+                            {{ $defaultCurrecy?->symbol ?? '' }}
                         </div>
                         <div class="text-muted">{{ __('dashboard.company_income') }} <br> ({{ __('dashboard.today') }})
                         </div>
@@ -61,7 +61,7 @@
                     <div>
                         <div class="stat-value">
                             {{ number_format(($financialToday->company_earnings ?? 0) + ($collectionToday->company_collections ?? 0) - ($expensesToday ?? 0), 2) }}
-                            {{ $defaultCurrecy->symbol }}
+                            {{ $defaultCurrecy?->symbol ?? '' }}
                         </div>
                         <div class="text-muted">{{ __('dashboard.profit') }} <br> ({{ __('dashboard.today') }})</div>
                     </div>
@@ -92,7 +92,7 @@
                     <div>
                         <div class="stat-value">
                             {{ number_format($financialMonth->revenue ?? 0, 2) }}
-                            {{ $defaultCurrecy->symbol }}
+                            {{ $defaultCurrecy?->symbol ?? '' }}
                         </div>
                         <div class="text-muted">{{ __('dashboard.revenue') }} <br> ({{ __('dashboard.month') }})</div>
                     </div>
@@ -108,7 +108,7 @@
                     <div>
                         <div class="stat-value">
                             {{ number_format(($financialMonth->company_earnings ?? 0) + ($collectionMonth->company_collections ?? 0), 2) }}
-                            {{ $defaultCurrecy->symbol }}
+                            {{ $defaultCurrecy?->symbol ?? '' }}
                         </div>
                         <div class="text-muted">{{ __('dashboard.company_income') }} <br>
                             ({{ __('dashboard.month') }})</div>
@@ -125,7 +125,7 @@
                     <div>
                         <div class="stat-value">
                             {{ number_format(($financialMonth->company_earnings ?? 0) + ($collectionMonth->company_collections ?? 0) - ($expensesMonth ?? 0), 2) }}
-                            {{ $defaultCurrecy->symbol }}
+                            {{ $defaultCurrecy?->symbol ?? '' }}
                         </div>
                         <div class="text-muted">{{ __('dashboard.profit') }} <br> ({{ __('dashboard.month') }})</div>
                     </div>
@@ -139,7 +139,7 @@
             <div class="card shadow-sm">
                 <div class="card-body pb-5">
                     <div style="height:300px;">
-                        <h6>{{ __('dashboard.cash_flow') }} ({{ $defaultCurrecy->symbol }})</h6>
+                        <h6>{{ __('dashboard.cash_flow') }} ({{ $defaultCurrecy?->symbol ?? '' }})</h6>
                         <canvas id="cashFlowChart" height="300"></canvas>
                     </div>
                 </div>
@@ -242,7 +242,7 @@
                     <div>
                         <div class="stat-value">
                             {{ number_format($pendingSettlementsAmount, 2) }}
-                            {{ $defaultCurrecy->symbol }}
+                            {{ $defaultCurrecy?->symbol ?? '' }}
                         </div>
                         <div class="text-muted">
                             {{ __('dashboard.pending_settlement') }}
@@ -261,7 +261,7 @@
                     <div>
                         <div class="stat-value">
                             {{ number_format($closedSettlementsAmount, 2) }}
-                            {{ $defaultCurrecy->symbol }}
+                            {{ $defaultCurrecy?->symbol ?? '' }}
                         </div>
                         <div class="text-muted">
                             {{ __('dashboard.closed_settlement') }}
@@ -280,7 +280,7 @@
                     <div>
                         <div class="stat-value">
                             {{ number_format($pendingCollectionsAmount, 2) }}
-                            {{ $defaultCurrecy->symbol }}
+                            {{ $defaultCurrecy?->symbol ?? '' }}
                         </div>
                         <div class="text-muted">
                             {{ __('dashboard.pending_collection') }}
@@ -299,7 +299,7 @@
                     <div>
                         <div class="stat-value">
                             {{ number_format($paidCollectionsAmount, 2) }}
-                            {{ $defaultCurrecy->symbol }}
+                            {{ $defaultCurrecy?->symbol ?? '' }}
                         </div>
                         <div class="text-muted">
                             {{ __('dashboard.paid_collection') }}
@@ -313,7 +313,7 @@
         <div class="col-md-6">
             <div class="card shadow p-3">
                 <h6>
-                    {{ __('dashboard.revenue_trend') }} ({{ $defaultCurrecy->symbol }})
+                    {{ __('dashboard.revenue_trend') }} ({{ $defaultCurrecy?->symbol ?? '' }})
                     <select id="revenueFilter" class="float-end form-select" style="width: 120px; height: 40px">
                         <option value="daily">{{ __('dashboard.daily') }}</option>
                         <option value="monthly">{{ __('dashboard.monthly') }}</option>
@@ -325,7 +325,7 @@
         <div class="col-md-6">
             <div class="card shadow p-3">
                 <h6>
-                    {{ __('dashboard.profit_trend') }} ({{ $defaultCurrecy->symbol }})
+                    {{ __('dashboard.profit_trend') }} ({{ $defaultCurrecy?->symbol ?? '' }})
                     <select id="profitFilter" class="float-end form-select" style="width: 120px; height: 40px">
                         <option value="daily">{{ __('dashboard.daily') }}</option>
                         <option value="monthly">{{ __('dashboard.monthly') }}</option>
@@ -362,7 +362,7 @@
                             <div class="text-end">
                                 <div class="fw-bold">
                                     {{ number_format($driver->earnings, 2) }}
-                                    {{ $defaultCurrecy->symbol }}
+                                    {{ $defaultCurrecy?->symbol ?? '' }}
                                 </div>
                                 <small class="text-muted">
                                     {{ __('dashboard.earnings') }}
@@ -413,7 +413,7 @@
         <div class="col-md-6">
             <div class="card shadow p-3">
                 <h6>
-                    {{ __('dashboard.orders_trend') }} ({{ $defaultCurrecy->symbol }})
+                    {{ __('dashboard.orders_trend') }} ({{ $defaultCurrecy?->symbol ?? '' }})
                     <select id="ordersFilter" class="float-end form-select" style="width: 120px; height: 40px">
                         <option value="daily">{{ __('dashboard.daily') }}</option>
                         <option value="monthly">{{ __('dashboard.monthly') }}</option>
@@ -425,7 +425,7 @@
         <div class="col-md-6">
             <div class="card shadow p-3">
                 <h6>
-                    {{ __('dashboard.company_earnings_trend') }} ({{ $defaultCurrecy->symbol }})
+                    {{ __('dashboard.company_earnings_trend') }} ({{ $defaultCurrecy?->symbol ?? '' }})
                     <select id="earningsFilter" class="float-end form-select" style="width: 120px; height: 40px">
                         <option value="daily">{{ __('dashboard.daily') }}</option>
                         <option value="monthly">{{ __('dashboard.monthly') }}</option>
@@ -442,7 +442,7 @@
                     <div style="height:320px;">
                         <h6 class="d-flex justify-content-between">{{ __('dashboard.settlement_distribution') }}
                             <span> {{ __('dashboard.total') }}:
-                                {{ number_format($financialMonth->revenue ?? 0, 2) }}{{ $defaultCurrecy->symbol }}</span>
+                                {{ number_format($financialMonth->revenue ?? 0, 2) }}{{ $defaultCurrecy?->symbol ?? '' }}</span>
                         </h6>
                         <canvas id="settlementPie"></canvas>
                     </div>
@@ -455,7 +455,7 @@
                     <div style="height:320px;">
                         <h6 class="d-flex justify-content-between">{{ __('dashboard.collection_distribution') }}
                             <span> {{ __('dashboard.total') }}:
-                                {{ number_format($collectionMonth->received_collections ?? 0, 2) }}{{ $defaultCurrecy->symbol }}</span>
+                                {{ number_format($collectionMonth->received_collections ?? 0, 2) }}{{ $defaultCurrecy?->symbol ?? '' }}</span>
                         </h6>
                         <canvas id="collectionPie"></canvas>
                     </div>
