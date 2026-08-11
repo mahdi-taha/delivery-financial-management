@@ -4,9 +4,8 @@
     <title>Login</title>
 @if ($info?->logo)
     <link rel="icon" type="image/png" href="{{ asset('storage/' . $info->logo) }}">
-@else
-    <link rel="icon" type="image/png" href="{{ asset('images/nologo.jpg') }}">
-@endif    @vite(['resources/css/app.css', 'resources/js/app.js'])
+@endif
+      @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-light">
     <div class="container">
